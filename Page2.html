@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For You, Lip</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 35%, #20294f 0%, #0b0f25 45%, #03040b 100%);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* BINTANG */
+        .stars {
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(white 1px, transparent 1px);
+            background-size: 90px 90px, 140px 140px;
+            background-position: 20px 30px, 70px 90px;
+            animation: stars 18s linear infinite;
+            opacity: .6;
+        }
+
+        @keyframes stars {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(80px);
+            }
+        }
+
+        /* BULAN */
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 35px;
+            width: 75px;
+            height: 75px;
+            background: #fff1bd;
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(255, 241, 189, .5);
+        }
+
+        /* CONTENT */
+        .container {
+            position: relative;
+            z-index: 5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 650px;
+            animation: appear 1.5s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .label {
+            font-size: 13px;
+            letter-spacing: 4px;
+            color: #bfc3df;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #fff1bd;
+            margin-bottom: 25px;
+            text-shadow: 0 0 20px rgba(255, 241, 189, .35);
+        }
+
+        .message {
+            font-size: 18px;
+            line-height: 1.9;
+            color: #e0e2ed;
+        }
+
+        .message span {
+            display: block;
+            opacity: 0;
+            animation: textAppear 1s forwards;
+        }
+
+        .message span:nth-child(1) {
+            animation-delay: .8s;
+        }
+
+        .message span:nth-child(2) {
+            animation-delay: 2.2s;
+        }
+
+        .message span:nth-child(3) {
+            animation-delay: 3.8s;
+        }
+
+        .message span:nth-child(4) {
+            animation-delay: 5.3s;
+        }
+
+        @keyframes textAppear {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* HEART */
+        .heart {
+            margin: 35px auto 25px;
+            font-size: 35px;
+            color: #ffb9c9;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* BUTTON */
+        .next-btn {
+            opacity: 0;
+            animation: buttonAppear 1s forwards;
+            animation-delay: 6.8s;
+
+            border: 1px solid rgba(255,255,255,.25);
+            background: rgba(255,255,255,.08);
+            color: white;
+            padding: 13px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 2px;
+            transition: .3s;
+            backdrop-filter: blur(8px);
+        }
+
+        @keyframes buttonAppear {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .next-btn:hover {
+            transform: scale(1.08);
+            background: #fff1bd;
+            color: #080b18;
+            box-shadow: 0 0 25px rgba(255,241,189,.5);
+        }
+
+        @media (max-width: 600px) {
+
+            .moon {
+                width: 55px;
+                height: 55px;
+                top: 25px;
+                right: 25px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .message {
+                font-size: 16px;
+                line-height: 1.8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <div class="moon"></div>
+
+    <main class="container">
+
+        <section class="content">
+
+            <div class="label">
+                Just for you
+            </div>
+
+            <h1>Aku cuma mau bilang...</h1>
+
+            <div class="message">
+
+                <span>
+                    Mungkin ini cuma pesan sederhana,
+                    tapi aku pengen kamu baca sampai selesai.
+                </span>
+
+                <span>
+                    Kalau hari ini terasa berat,
+                    nggak apa-apa buat berhenti sebentar.
+                </span>
+
+                <span>
+                    Kamu nggak harus selalu kuat.
+                    Kamu juga berhak istirahat dan menikmati malam.
+                </span>
+
+                <span>
+                    Jadi malam ini, jangan pikirin semuanya dulu.
+                    Ada hari esok untuk menghadapi semuanya.
+                </span>
+
+            </div>
+
+            <div class="heart">
+                ♥
+            </div>
+
+            <button class="next-btn" onclick="nextPage()">
+                LANJUT →
+            </button>
+
+        </section>
+
+    </main>
+
+    <script>
+
+        function nextPage() {
+            window.location.href = "page3.html";
+        }
+
+    </script>
+
+</body>
+</html>
