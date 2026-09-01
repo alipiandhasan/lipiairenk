@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>One Little Moment</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at center, #252044 0%, #0d1025 50%, #03040b 100%);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .stars {
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(white 1px, transparent 1px);
+
+            background-size:
+                80px 80px,
+                130px 130px,
+                170px 170px;
+
+            background-position:
+                10px 20px,
+                50px 70px,
+                100px 40px;
+
+            animation: starsMove 20s linear infinite;
+
+            opacity: .6;
+        }
+
+        @keyframes starsMove {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(90px);
+            }
+        }
+
+        .moon {
+            position: absolute;
+
+            top: 40px;
+            right: 35px;
+
+            width: 75px;
+            height: 75px;
+
+            border-radius: 50%;
+
+            background: #fff1bd;
+
+            box-shadow:
+                0 0 40px rgba(255, 241, 189, .55);
+
+            animation: moonFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes moonFloat {
+            50% {
+                transform: translateY(8px);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 5;
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 650px;
+
+            animation: pageAppear 1.5s ease;
+        }
+
+        @keyframes pageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .label {
+            font-size: 13px;
+
+            letter-spacing: 4px;
+
+            color: #c4c7df;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 38px;
+
+            color: #fff1bd;
+
+            margin-bottom: 25px;
+
+            text-shadow:
+                0 0 25px rgba(255, 241, 189, .4);
+        }
+
+        .photo-container {
+            width: 300px;
+            height: 360px;
+
+            margin: auto;
+
+            padding: 7px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff1bd,
+                    #a9a8ff,
+                    #ffb9cf,
+                    #fff1bd
+                );
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 0 25px rgba(255, 241, 189, .25),
+                0 0 70px rgba(160, 150, 255, .2);
+
+            animation: photoFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes photoFloat {
+            50% {
+                transform: translateY(-8px) rotate(1deg);
+            }
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 17px;
+
+            display: block;
+        }
+
+        .caption {
+            margin: 23px auto 25px;
+
+            max-width: 520px;
+
+            color: #dedfea;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            animation:
+                captionAppear 1.5s ease .8s both;
+        }
+
+        @keyframes captionAppear {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .heart {
+            position: absolute;
+
+            font-size: 25px;
+
+            color: #ffb8cb;
+
+            animation:
+                heartFloat 3s ease-in-out infinite;
+        }
+
+        .heart.one {
+            left: 18%;
+            top: 30%;
+        }
+
+        .heart.two {
+            right: 17%;
+            bottom: 30%;
+
+            animation-delay: 1s;
+        }
+
+        @keyframes heartFloat {
+            50% {
+                transform:
+                    translateY(-15px)
+                    rotate(10deg);
+            }
+        }
+
+        .next-btn {
+            padding: 14px 32px;
+
+            border-radius: 50px;
+
+            border:
+                1px solid rgba(255,255,255,.25);
+
+            background:
+                rgba(255,255,255,.08);
+
+            color: white;
+
+            font-size: 14px;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+            backdrop-filter: blur(8px);
+        }
+
+        .next-btn:hover {
+            transform: scale(1.08);
+
+            background: #fff1bd;
+
+            color: #080b18;
+
+            box-shadow:
+                0 0 30px rgba(255,241,189,.55);
+        }
+
+        @media (max-width: 600px) {
+
+            .moon {
+                width: 55px;
+                height: 55px;
+
+                top: 25px;
+                right: 25px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .photo-container {
+                width: 240px;
+                height: 290px;
+            }
+
+            .caption {
+                font-size: 14px;
+            }
+
+            .heart.one {
+                left: 8%;
+            }
+
+            .heart.two {
+                right: 8%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <div class="moon"></div>
+
+    <div class="heart one">♥</div>
+    <div class="heart two">♥</div>
+
+    <main class="container">
+
+        <section class="content">
+
+            <div class="label">
+                One little moment
+            </div>
+
+            <h1>
+                Satu hal yang ingin kuingat...
+            </h1>
+
+            <div class="photo-container">
+
+                <img
+                    src="lipiyot.jpg"
+                    alt="Momen Lip"
+                >
+
+            </div>
+
+            <p class="caption">
+
+                Kadang bukan tentang seberapa besar
+                sebuah momen.
+
+                <br><br>
+
+                Tapi tentang seseorang yang membuat
+                momen sederhana terasa berarti.
+
+            </p>
+
+            <button
+                class="next-btn"
+                onclick="nextPage()"
+            >
+                TERAKHIR →
+            </button>
+
+        </section>
+
+    </main>
+
+    <script>
+
+        function nextPage() {
+
+            window.location.href = "page5.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
