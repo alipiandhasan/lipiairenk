@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tentang Kamu, Lip</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at center, #241d42 0%, #0d1025 50%, #03040b 100%);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* BINTANG */
+        .stars {
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(white 1px, transparent 1px);
+            background-size: 80px 80px, 130px 130px, 170px 170px;
+            background-position: 10px 20px, 50px 70px, 100px 40px;
+            animation: moveStars 20s linear infinite;
+            opacity: .6;
+        }
+
+        @keyframes moveStars {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(90px);
+            }
+        }
+
+        /* BULAN */
+        .moon {
+            position: absolute;
+            top: 40px;
+            right: 35px;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: #fff1bd;
+            box-shadow: 0 0 40px rgba(255, 241, 189, .55);
+        }
+
+        /* CONTENT */
+        .container {
+            position: relative;
+            z-index: 5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .content {
+            max-width: 650px;
+            animation: appear 1.5s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .label {
+            font-size: 13px;
+            letter-spacing: 4px;
+            color: #c4c7df;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #fff1bd;
+            margin-bottom: 30px;
+            text-shadow: 0 0 25px rgba(255, 241, 189, .4);
+        }
+
+        /* PESAN */
+        .message {
+            font-size: 18px;
+            line-height: 1.9;
+            color: #e1e2ec;
+        }
+
+        .line {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: lineAppear 1.2s forwards;
+            margin-bottom: 18px;
+        }
+
+        .line:nth-child(1) {
+            animation-delay: .8s;
+        }
+
+        .line:nth-child(2) {
+            animation-delay: 2.4s;
+        }
+
+        .line:nth-child(3) {
+            animation-delay: 4s;
+        }
+
+        .line:nth-child(4) {
+            animation-delay: 5.6s;
+        }
+
+        @keyframes lineAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* HEART */
+        .heart {
+            font-size: 38px;
+            margin: 28px 0;
+            color: #ffb8cb;
+            animation: heartbeat 1.4s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.18);
+            }
+        }
+
+        /* BUTTON */
+        .next-btn {
+            opacity: 0;
+            animation: showButton 1s forwards;
+            animation-delay: 7s;
+
+            padding: 14px 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,.25);
+
+            background: rgba(255,255,255,.08);
+            color: white;
+
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+
+            transition: .3s;
+            backdrop-filter: blur(8px);
+        }
+
+        @keyframes showButton {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .next-btn:hover {
+            transform: scale(1.08);
+            background: #fff1bd;
+            color: #080b18;
+            box-shadow: 0 0 30px rgba(255,241,189,.55);
+        }
+
+        /* HP */
+        @media (max-width: 600px) {
+
+            .moon {
+                width: 55px;
+                height: 55px;
+                top: 25px;
+                right: 25px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .message {
+                font-size: 16px;
+                line-height: 1.8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <div class="moon"></div>
+
+    <main class="container">
+
+        <section class="content">
+
+            <div class="label">
+                About you
+            </div>
+
+            <h1>Tentang kamu, Lip...</h1>
+
+            <div class="message">
+
+                <div class="line">
+                    Aku mungkin nggak selalu bisa
+                    menjelaskan kenapa kamu begitu berarti.
+                </div>
+
+                <div class="line">
+                    Tapi ada sesuatu tentang kamu
+                    yang selalu berhasil bikin hari biasa
+                    terasa sedikit lebih indah.
+                </div>
+
+                <div class="line">
+                    Bahkan ketika kita cuma ngobrol
+                    tentang hal-hal kecil dan nggak penting.
+                </div>
+
+                <div class="line">
+                    Entah kenapa, aku tetap senang
+                    bisa punya kamu di dalam cerita hidupku.
+                </div>
+
+            </div>
+
+            <div class="heart">
+                ♥
+            </div>
+
+            <button class="next-btn" onclick="nextPage()">
+                LANJUT →
+            </button>
+
+        </section>
+
+    </main>
+
+    <script>
+
+        function nextPage() {
+            window.location.href = "page4.html";
+        }
+
+    </script>
+
+</body>
+</html>
