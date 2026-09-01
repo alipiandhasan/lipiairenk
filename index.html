@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Lip 🌙</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at center, #182044 0%, #080b18 55%, #03040a 100%);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* BINTANG */
+        .stars {
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 90px 90px, 130px 130px, 170px 170px;
+            background-position: 10px 20px, 50px 80px, 100px 40px;
+            animation: starsMove 18s linear infinite;
+            opacity: .65;
+        }
+
+        @keyframes starsMove {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(90px);
+            }
+        }
+
+        /* BULAN */
+        .moon {
+            position: absolute;
+            top: 45px;
+            right: 35px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #fff2bd;
+            box-shadow: 0 0 35px rgba(255, 242, 189, .6);
+            animation: moonFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes moonFloat {
+            50% {
+                transform: translateY(8px);
+            }
+        }
+
+        /* ISI */
+        .container {
+            position: relative;
+            z-index: 5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .content {
+            animation: opening 1.5s ease;
+        }
+
+        @keyframes opening {
+            from {
+                opacity: 0;
+                transform: translateY(35px) scale(.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* FOTO */
+        .photo-frame {
+            width: 190px;
+            height: 190px;
+            margin: auto;
+            padding: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fff2bd, #aaa9ff, #fff2bd);
+            box-shadow:
+                0 0 25px rgba(255, 242, 189, .45),
+                0 0 70px rgba(140, 140, 255, .2);
+            animation: photoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes photoGlow {
+            50% {
+                transform: scale(1.04);
+                box-shadow:
+                    0 0 40px rgba(255, 242, 189, .7),
+                    0 0 90px rgba(140, 140, 255, .3);
+            }
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #090b18;
+        }
+
+        .small-text {
+            margin-top: 28px;
+            color: #c9cce0;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin-top: 12px;
+            font-size: 42px;
+            letter-spacing: 1px;
+            color: #fff2bd;
+            text-shadow: 0 0 20px rgba(255, 242, 189, .45);
+        }
+
+        .subtitle {
+            margin: 15px auto 30px;
+            max-width: 450px;
+            color: #d7d9e8;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* TOMBOL */
+        .open-btn {
+            border: 1px solid rgba(255,255,255,.25);
+            background: rgba(255,255,255,.08);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: .35s;
+            backdrop-filter: blur(8px);
+        }
+
+        .open-btn:hover {
+            transform: scale(1.08);
+            background: #fff2bd;
+            color: #080b18;
+            box-shadow: 0 0 30px rgba(255,242,189,.5);
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+
+            .moon {
+                width: 60px;
+                height: 60px;
+                top: 25px;
+                right: 25px;
+            }
+
+            .photo-frame {
+                width: 155px;
+                height: 155px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <div class="moon"></div>
+
+    <main class="container">
+
+        <section class="content">
+
+            <div class="photo-frame">
+                <img src="foto.jpg" alt="Foto Lip">
+            </div>
+
+            <div class="small-text">
+                A little message for you
+            </div>
+
+            <h1>Hey, Lip...</h1>
+
+            <p class="subtitle">
+                Sebelum kamu tidur malam ini,
+                aku mau kasih kamu sesuatu.
+                Jadi jangan langsung pergi.
+            </p>
+
+            <button class="open-btn" onclick="openPage()">
+                OPEN ✨
+            </button>
+
+        </section>
+
+    </main>
+
+    <script>
+        function openPage() {
+            window.location.href = "page2.html";
+        }
+    </script>
+
+</body>
+</html>
